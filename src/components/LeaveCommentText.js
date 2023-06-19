@@ -1,13 +1,16 @@
 import React from "react";
+import { useMouse } from "../MainContext";
 
-const LeaveCommentText = ({ position }) => {
+const LeaveCommentText = () => {
+  const { position } = useMouse();
+
   return (
     <div
+      className="leave-comment-text"
       style={{
         position: "fixed",
         top: position.y,
         left: position.x,
-        cursor: "crosshair",
       }}
     >
       Yorum yazmak için tıkla!

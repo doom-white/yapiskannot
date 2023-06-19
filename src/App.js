@@ -1,19 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import masa from "./assets/img/web-sitesi-acmak-ve-tasarlamak.jpg";
 import LeaveCommentText from "./components/LeaveCommentText";
+import { useMouse } from "./MainContext";
+import Note from "./components/Note";
+import NoteBox from "./components/NoteBox";
 
 const App = () => {
-  const [mode, setMode] = useState(false);
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
+  const [boxVisible, setBoxVisible] = useState(false);
 
+  const { mode, setMode, position, setPosition, notes, setBoxPosition } =
+    useMouse();
   const screen = useRef();
+
+  useEffect(() => {
+    screen.current.focus();
+  }, []);
 
   const handleKeyUp = (e) => {
     if (e.key === "c") {
       setMode(!mode);
+      setBoxVisible(false);
     }
   };
 
@@ -24,21 +30,29 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    screen.current.focus();
-  }, []);
+  const handleClick = (e) => {
+    if (mode) {
+      setBoxPosition({
+        x: position.x,
+        y: position.y,
+      });
+      setBoxVisible(true);
+    }
+  };
 
   return (
     <div
       ref={screen}
       tabIndex={0}
-      className="screen"
+      className={`screen ${mode && "editable"}`}
+      onClick={handleClick}
       onMouseMove={handleMouseMove}
       onKeyUp={handleKeyUp}
     >
-      {mode && <div>Yorum modu aktif!</div>}
-      <LeaveCommentText position={position} />
+      {mode && <LeaveCommentText />}
       <img className="masa" src={masa} alt="masa" />
+      {notes && notes.map((note) => <Note note={note} key={note.id} />)}
+      {boxVisible && <NoteBox />}
     </div>
   );
 };
