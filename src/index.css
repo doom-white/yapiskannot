@@ -1,3 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
 .screen {
   position: fixed;
   top: 0;
@@ -41,6 +50,35 @@
   border: 1px solid rgba(128, 128, 128, 0.1);
   background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transform: translate(-50%, 20%);
+  -webkit-transform: translate(-50%, 20%);
+  -moz-transform: translate(-50%, 20%);
+  -ms-transform: translate(-50%, 20%);
+  -o-transform: translate(-50%, 20%);
+}
+
+.note-box-number {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color);
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  -webkit-transform: translate(-50%, -20%);
+  -moz-transform: translate(-50%, -20%);
+  -ms-transform: translate(-50%, -20%);
+  -o-transform: translate(-50%, -20%);
 }
 
 .note-box ul {
@@ -77,4 +115,21 @@
 .comment-container li:hover {
   color: var(--color);
   cursor: pointer;
+}
+
+.upArrow {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: whitesmoke;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+  border-left: 1px solid rgba(128, 128, 128, 0.1);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -o-transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
