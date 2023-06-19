@@ -109,6 +109,10 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+.note-save-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
 
 .note-textarea textarea {
   width: 100%;

@@ -6,15 +6,15 @@ export const useMouse = () => useContext(MainContext);
 
 const MainProvider = ({ children }) => {
   const [mode, setMode] = useState(false);
+  const [boxVisible, setBoxVisible] = useState(false);
   const [notes, setNotes] = useState([
     {
-      id: 1,
-      title: "test note!",
-      description: "bu bir deneme notudur",
-      color: "red",
+      number: 0,
+      description: "",
+      color: "",
       position: {
-        x: 350,
-        y: 300,
+        x: 0,
+        y: 0,
       },
     },
   ]);
@@ -37,6 +37,8 @@ const MainProvider = ({ children }) => {
     setNotes,
     boxPosition,
     setBoxPosition,
+    boxVisible,
+    setBoxVisible,
   };
 
   return <MainContext.Provider value={data}>{children}</MainContext.Provider>;

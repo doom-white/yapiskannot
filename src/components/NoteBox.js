@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useMouse } from "../MainContext";
 
 const NoteBox = () => {
-  const { boxPosition, setMode, notes } = useMouse();
+  const { boxPosition, setMode, notes, setNotes, setBoxVisible } = useMouse();
+  const [note, setNote] = useState("");
   const commentTypes = [
     {
       name: "comment",
@@ -26,6 +27,20 @@ const NoteBox = () => {
     setColors(color);
   };
 
+  const addNote = () => {
+    const currentNote = {
+      number: notes.length + 1,
+      description: note,
+      color: colors,
+      position: {
+        x: boxPosition.x,
+        y: boxPosition.y,
+      },
+    };
+    setNotes([...notes, currentNote]);
+    setBoxVisible(false);
+  };
+
   return (
     <div
       className="note-box"
@@ -35,12 +50,12 @@ const NoteBox = () => {
     >
       <>
         <span className="note-box-number" style={{ "--color": colors }}>
-          {notes.length + 1}
+          {notes.length}
         </span>
         <span className="upArrow"></span>
         <ul>
           {commentTypes.map((ct) => (
-            <div className="comment-container" key={ct.name}>
+            <div className="comment-container">
               <div
                 className="comment-color"
                 style={{ "--color": ct.color }}
@@ -57,8 +72,19 @@ const NoteBox = () => {
       </>
       <>
         <div className="note-textarea">
-          <textarea name="setnote" id="setnote" cols="20" rows="7"></textarea>
-          <button style={{ "--color": colors }} className="note-save-btn">
+          <textarea
+            name="setnote"
+            id="setnote"
+            cols="20"
+            rows="7"
+            onChange={(e) => setNote(e.target.value)}
+          ></textarea>
+          <button
+            disabled={!note}
+            style={{ "--color": colors }}
+            className="note-save-btn"
+            onClick={addNote}
+          >
             Kaydet
           </button>
         </div>

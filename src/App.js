@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import masa from "./assets/img/web-sitesi-acmak-ve-tasarlamak.jpg";
 import LeaveCommentText from "./components/LeaveCommentText";
 import { useMouse } from "./MainContext";
@@ -6,10 +6,16 @@ import Note from "./components/Note";
 import NoteBox from "./components/NoteBox";
 
 const App = () => {
-  const [boxVisible, setBoxVisible] = useState(false);
-
-  const { mode, setMode, position, setPosition, notes, setBoxPosition } =
-    useMouse();
+  const {
+    mode,
+    setMode,
+    position,
+    setPosition,
+    notes,
+    setBoxPosition,
+    setBoxVisible,
+    boxVisible,
+  } = useMouse();
   const screen = useRef();
 
   useEffect(() => {
@@ -17,7 +23,7 @@ const App = () => {
   }, []);
 
   const handleKeyUp = (e) => {
-    if (e.key === "c") {
+    if (e.key === "Escape") {
       setMode(!mode);
       setBoxVisible(false);
     }
@@ -51,7 +57,7 @@ const App = () => {
     >
       {mode && <LeaveCommentText />}
       <img className="masa" src={masa} alt="masa" />
-      {notes && notes.map((note) => <Note note={note} key={note.id} />)}
+      {notes && notes.map((note) => <Note note={note} key={note.number} />)}
       {boxVisible && <NoteBox />}
     </div>
   );
