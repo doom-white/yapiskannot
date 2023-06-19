@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Draggable from "react-draggable";
 
 const Note = ({ note }) => {
   const [noteVisible, setNoteVisible] = useState(false);
@@ -8,26 +9,26 @@ const Note = ({ note }) => {
   };
 
   return (
-    <>
+    <Draggable defaultPosition={{ x: note.position.x, y: note.position.y }}>
       <div
         className="note-main"
         style={{
           position: "absolute",
-          top: note.position.y,
-          left: note.position.x,
+          top: 0,
+          left: 0,
         }}
         key={note.number}
       >
         <span
           className="note-box-number"
           style={{ "--color": note.color, cursor: "pointer" }}
-          onClick={showNotes}
+          onDoubleClick={showNotes}
         >
           {note.number}
         </span>
         {noteVisible && <div className="note-desc">{note.description}</div>}
       </div>
-    </>
+    </Draggable>
   );
 };
 
