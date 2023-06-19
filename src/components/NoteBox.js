@@ -33,26 +33,36 @@ const NoteBox = () => {
       onMouseEnter={() => setMode(false)}
       onMouseLeave={() => setMode(true)}
     >
-      <span className="note-box-number" style={{ "--color": colors }}>
-        {notes.length + 1}
-      </span>
-      <span className="upArrow"></span>
-      <ul>
-        {commentTypes.map((ct) => (
-          <div className="comment-container" key={ct.name}>
-            <div
-              className="comment-color"
-              style={{ "--color": ct.color }}
-            ></div>
-            <li
-              onClick={() => changeColor(ct.color)}
-              style={{ "--color": ct.color }}
-            >
-              {ct.text}
-            </li>
-          </div>
-        ))}
-      </ul>
+      <>
+        <span className="note-box-number" style={{ "--color": colors }}>
+          {notes.length + 1}
+        </span>
+        <span className="upArrow"></span>
+        <ul>
+          {commentTypes.map((ct) => (
+            <div className="comment-container" key={ct.name}>
+              <div
+                className="comment-color"
+                style={{ "--color": ct.color }}
+              ></div>
+              <li
+                onClick={() => changeColor(ct.color)}
+                style={{ "--color": ct.color }}
+              >
+                {ct.text}
+              </li>
+            </div>
+          ))}
+        </ul>
+      </>
+      <>
+        <div className="note-textarea">
+          <textarea name="setnote" id="setnote" cols="20" rows="7"></textarea>
+          <button style={{ "--color": colors }} className="note-save-btn">
+            Kaydet
+          </button>
+        </div>
+      </>
     </div>
   );
 };

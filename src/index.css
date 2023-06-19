@@ -55,6 +55,14 @@
   -moz-transform: translate(-50%, 20%);
   -ms-transform: translate(-50%, 20%);
   -o-transform: translate(-50%, 20%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
 }
 
 .note-box-number {
@@ -83,13 +91,46 @@
 
 .note-box ul {
   padding: 0 50px 0 20px;
+  /* background-color: rebeccapurple; */
+}
+
+.note-textarea {
+  margin-right: 1rem;
+}
+
+.note-save-btn {
+  width: 100%;
+  background-color: var(--color);
+  color: whitesmoke;
+  padding: 7px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.note-textarea textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.note-textarea textarea:focus {
+  border-color: #333;
 }
 
 .comment-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .comment-color {
