@@ -29,7 +29,7 @@ const NoteBox = () => {
 
   const addNote = () => {
     const currentNote = {
-      number: notes.length + 1,
+      number: notes.length,
       description: note,
       color: colors,
       position: {

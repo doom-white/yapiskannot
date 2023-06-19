@@ -130,6 +130,27 @@
   border-color: #333;
 }
 
+.note-main {
+  transform: translate(-50%, 20%);
+  -webkit-transform: translate(-50%, 20%);
+  -moz-transform: translate(-50%, 20%);
+  -ms-transform: translate(-50%, 20%);
+  -o-transform: translate(-50%, 20%);
+}
+
+.note-desc {
+  max-width: 300px;
+  background-color: rgba(245, 245, 245, 0.7);
+  padding: 20px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  margin-top: 11px;
+  word-wrap: break-word;
+}
+
 .comment-container {
   display: flex;
   align-items: center;
