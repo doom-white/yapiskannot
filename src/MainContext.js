@@ -7,17 +7,19 @@ export const useMouse = () => useContext(MainContext);
 const MainProvider = ({ children }) => {
   const [mode, setMode] = useState(false);
   const [boxVisible, setBoxVisible] = useState(false);
-  const [notes, setNotes] = useState([
-    {
-      number: 0,
-      description: "",
-      color: "",
-      position: {
-        x: -9999,
-        y: -9999,
+  const [notes, setNotes] = useState(
+    (localStorage.notes && JSON.parse(localStorage.notes)) || [
+      {
+        number: 0,
+        description: "",
+        color: "",
+        position: {
+          x: 0,
+          y: 0,
+        },
       },
-    },
-  ]);
+    ]
+  );
   const [position, setPosition] = useState({
     x: 0,
     y: 0,

@@ -29,7 +29,7 @@ const NoteBox = () => {
 
   const addNote = () => {
     const currentNote = {
-      number: notes.length,
+      number: notes?.length,
       description: note,
       color: colors,
       position: {
@@ -37,6 +37,7 @@ const NoteBox = () => {
         y: boxPosition.y,
       },
     };
+    localStorage.setItem("notes", JSON.stringify(notes));
     setNotes([...notes, currentNote]);
     setBoxVisible(false);
   };
@@ -50,7 +51,7 @@ const NoteBox = () => {
     >
       <>
         <span className="note-box-number" style={{ "--color": colors }}>
-          {notes.length}
+          {notes?.length}
         </span>
         <span className="upArrow"></span>
         <ul>

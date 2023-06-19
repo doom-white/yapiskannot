@@ -9,7 +9,10 @@ const Note = ({ note }) => {
   };
 
   return (
-    <Draggable defaultPosition={{ x: note.position.x, y: note.position.y }}>
+    <Draggable
+      key={note.number}
+      defaultPosition={{ x: note.position.x, y: note.position.y }}
+    >
       <div
         className="note-main"
         style={{
@@ -17,7 +20,6 @@ const Note = ({ note }) => {
           top: 0,
           left: 0,
         }}
-        key={note.number}
       >
         <span
           className="note-box-number"

@@ -57,7 +57,7 @@ const App = () => {
     >
       {mode && <LeaveCommentText />}
       <img className="masa" src={masa} alt="masa" />
-      {notes && notes.map((note) => <Note note={note} key={note.number} />)}
+      {notes && notes?.map((note) => <Note note={note} key={note.number} />)}
       {boxVisible && <NoteBox />}
     </div>
   );
